@@ -1,0 +1,40 @@
+{
+  "name": "wotc",
+  "version": "0.0.0",
+  "description": "Worlds of the Community",
+  "scripts": {
+    "start": "parcel ./src/index.html",
+    "clean": "rm -rf dist",
+    "build": "parcel build ./src/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wotcdist/wotcdist.github.io.git"
+  },
+  "author": "WotC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wotcdist/wotcdist.github.io/issues"
+  },
+  "homepage": "https://github.com/wotcdist/wotcdist.github.io#readme",
+  "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/plugin-transform-runtime": "^7.15.8",
+    "@tailwindcss/forms": "^0.3.4",
+    "autoprefixer": "^10.4.0",
+    "parcel": "^2.0.0",
+    "postcss": "^8.3.11",
+    "tailwindcss": "^2.2.17"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.15.4",
+    "@themesberg/flowbite": "^1.0.4",
+    "@themesberg/tailwind-datepicker": "^1.0.1",
+    "alpinejs": "^3.4.2",
+    "compare-versions": "^3.6.0",
+    "dompurify": "^2.3.3",
+    "ipfs-http-client": "^53.0.1",
+    "tippy.js": "^6.3.2"
+  }
+}
