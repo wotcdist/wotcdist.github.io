@@ -125,6 +125,26 @@ async function getData(retry = 0) {
   }
 }
 
+async function getManifest(retry = 0) {
+  try {
+    const [hash] = await resolveName(addr)
+    const manifest = await fetch(`${url}/${hash}/index.json`).then(res => res.json())
+    console.log('MANIFEST', manifest)
+    return manifest
+
+  } catch (err) {
+    if (retry < retryThreshold) {
+      return new Promise(resolve => setTimeout(() => resolve(getManifest(retry+1)), retryBackoff[retry]))
+    }
+
+    throw err
+  }
+}
+
+function badgeText(left, right) {
+  return `${left} | ${right}`
+}
+
 function getGatewayUrl(hash, filename) {
   const path = `${url}/ipfs/${hash}`
 
@@ -139,6 +159,8 @@ function getGatewayUrl(hash, filename) {
  */
 export {
   getData,
+  getManifest,
   getGatewayUrl,
+  badgeText,
   DOMPurify,
 }
